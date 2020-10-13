@@ -77,7 +77,7 @@ Callback functions must return one of the following values.
 * htpy.HTP_STOP
 * htpy.HTP_DECLINE (XXX: What does this do?)
 
-###HTP_STOP vs HTP_ERROR
+### HTP_STOP vs HTP_ERROR
 When libhtp is given the HTP_ERROR return value it sets the parser state to an
 error and will refuse to parse any further. This manifests in htpy as an
 htpy_error exception. This is considered a fatal error. The difference between
@@ -164,7 +164,7 @@ default state).
 
 Callback definitions
 --------------------
-###Regular callbacks
+### Regular callbacks
 Regular callbacks are passed one argument:
 
 * cp: The connection parser.
@@ -177,7 +177,7 @@ def request_uri_normalize_callback(cp):
     return htpy.HTP_OK
 </pre>
 
-###Transaction callbacks
+### Transaction callbacks
 Transaction callbacks are passed two arguments:
 
 * data: The transaction data.
@@ -189,7 +189,7 @@ def response_body_data_callback(data, length):
     return htpy.HTP_OK
 </pre>
 
-###Log callback
+### Log callback
 Log callbacks are passed three arguments:
 
 * cp: The connection parser from which this log message was generated.
@@ -213,7 +213,7 @@ def log_callback(cp, msg, level):
     return htpy.HTP_OK
 </pre>
 
-###Request file data callback
+### Request file data callback
 Request file data callbacks are passed one argument:
 
 * data: A dictionary which has the following key/value pairs:
@@ -259,7 +259,7 @@ cp.req_data(req)
 It is also possible to remove this object using the ''del_obj()'' method of the
 connection parser.
 
-###EXCEPTION
+### EXCEPTION
 The only callback which can not be passed an arbitrary object is the
 request_file_data callback. This is due to a limitation in libhtp.
 
@@ -281,11 +281,11 @@ Objects
 =======
 Config object
 -------------
-###Methods
+### Methods
 Configuration objects have no methods. All their functionality is exposed as
 attributes that can be manipulated.
 
-###Attributes
+### Attributes
 Configuration objects contain the following attributes. In many cases the
 value being set is not sanity checked. Using the wrong value can potentially
 alter the parser in odd ways.
@@ -307,7 +307,7 @@ alter the parser in odd ways.
 
 Connection parser object
 ------------------------
-###Methods
+### Methods
 * get_request_header(string): Given a header (string) return a string that is
   the value of that header.
 * get_response_header(string): Given a header (string) return a string that is
@@ -390,6 +390,6 @@ When the callbacks are called are documented elsewhere.
 * register_response_complete(callback)
 * register_log(callback)
 
-###Attributes
+### Attributes
 The connection parser object contains the config object as a member, but
 you should not touch it, ever.
